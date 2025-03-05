@@ -95,36 +95,46 @@ function init() {
     const BanBTN = document.querySelector('#BanBTN');
     const MuteBTN = document.querySelector('#MuteBTN');
     const SoftbanBTN = document.querySelector('#SoftbanBTN');
-   
+    const DocBTN = document.querySelector('#DocBTN');
+
     WarnBTN.addEventListener('click',CopyWarn);
     BanBTN.addEventListener('click',CopyBan);
     MuteBTN.addEventListener('click',CopyMute);
     SoftbanBTN.addEventListener('click',CopySoftban);
+    DocBTN.addEventListener('click',CopyDoc);
 
+
+
+function CopyDoc()
+{
+    let documentation = UserIDLabel.innerHTML + "\n" + ReasonLabel.innerHTML + "\n" + ActionLabel.innerHTML + "\n" + "Proof: Attached"
+    navigator.clipboard.writeText(documentation);
+    alert("Copied the text: \n" + documentation);
+}
 
     function CopyWarn() {
 
         navigator.clipboard.writeText(warncmd.value);
-        alert("Copied the text: " + warncmd.value);
+        alert("Copied the text: \n" + warncmd.value);
         
 
       }
       function CopyMute() {
         
         navigator.clipboard.writeText(mutecmd.value);
-        alert("Copied the text: " + mutecmd.value);
+        alert("Copied the text: \n" + mutecmd.value);
 
       }
       function CopyBan() {
         
         navigator.clipboard.writeText(bancmd.value);
-        alert("Copied the text: " + bancmd.value);
+        alert("Copied the text: \n" + bancmd.value);
 
       }
       function CopySoftban() {
         
         navigator.clipboard.writeText(softbancmd.value);
-        alert("Copied the text: " + softbancmd.value);
+        alert("Copied the text: \n" + softbancmd.value);
 
       }
 
