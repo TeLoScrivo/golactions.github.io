@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Split Layout</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <!-- Content for the left side -->
+            <h1>UserID</h1>
+            <input type="text" name="UserTB" id="UserTB" placeholder="UserID">
+            <h1>Rule Broken</h1>
+        <select name="rules" id="rules">
+            <option value="0">Please Select A Rule</option>
+            <option value="1">Rule 1: No Spam / Flood</option>
+            <option value="2">Rule 2: Sensitive Topics</option>
+            <option value="3">Rule 3: Stay PG-13</option>
+            <option value="4">Rule 4: Discrimination</option>
+            <option value="5">Rule 5: Voice Chat Related</option>
+            <option value="6">Rule 6: Leaking Personal Info</option>
+            <option value="7">Rule 7: Dangerous Links/Files</option>
+            <option value="8">Rule 8: Foreign Language outside #international-chat</option>
+            <option value="9">Rule 9: Use Of Common Sense</option>
+            <option value="10">Rule 10: Discord TOS / Community Guidelines</option>
+            <option value="11">Rule 11: Advertisement</option>
+            <option value="12">Rule 12: Contreversial Topics</option>
+            <option value="13">Other</option>
+        </select>
+
+        <h1>Guideline Broken</h1>
+        <select name="guideline" id="guideline">
+            <option value="21">Please Select A Guideline</option>
+            <option value="0">Advertising</option>
+            <option value="1">Argumentative Behavior</option>
+            <option value="2">Argumentative Behavior after Verbal Warn</option>
+            <option value="3">NSFW Speech</option>
+            <option value="4">NSFW Speech (If any previous NSFW Speech warns)</option>
+            <option value="5">Derogatory Terms</option>
+            <option value="6">Spam</option>
+            <option value="7">Continuing Spam</option>
+            <option value="8">Flooding</option>
+            <option value="9">Bodyshaming</option>
+            <option value="10">Death Threats</option>
+            <option value="11">Begging</option>
+            <option value="12">Mini Modding</option>
+            <option value="13">Staff Disrespect</option>
+            <option value="14">Hacked Account</option>
+            <option value="15">Discrimination</option>
+            <option value="16">Underage</option>
+            <option value="17">Doxxing</option>
+            <option value="18">Scamming</option>
+            <option value="19">Extreme NSFW</option>
+            <option value="20">Bypassing Ban</option>
+        </select>
+
+        
+            
+        
+        
+        <h1>Additional Info<h1>
+        <textarea id="ModAddition"></textarea>
+        </div>
+
+        <div class="right-side">
+            <div class="top">
+                <!-- Top section of the right side -->
+                <h2>DOCUMENTATION FORMAT</h2>
+                <p id="userid">UserID: </p>
+                <p id="reason" >Reason: </p>
+                <p id="action" >Action: </p>
+                <p>Proof: Attached</p>
+            </div>
+            <div class="middle">
+                <!-- Middle section of the right side -->
+                 
+                <h2>Command</h2>
+
+                <div id="ban" class="hidden">
+                    <h2>Ban Command</h2>
+                    <textarea id="bancmd"></textarea>
+                    <button id="BanBTN">Copy Command</button>
+                </div>
+
+                <div id="warn" class="hidden">
+                    <h4>Warn Command</h4>
+                    <textarea id="warncmd"></textarea>
+                    <button id="WarnBTN">Copy Command</button>
+                </div>
+
+                <div id="softban" class="hidden">
+                    <h2>Softban Command</h2>
+                    <textarea id="softbancmd"></textarea>
+                    <button id="SoftbanBTN">Copy Command</button>
+                </div>
+
+                <div id="mute" class="hidden">
+                    <h2>Mute Command</h2>
+                    <textarea id="mutecmd"></textarea>
+                    <button id="MuteBTN">Copy Command</button>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>

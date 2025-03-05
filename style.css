@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url(https://media3.giphy.com/media/cMhglZMLwT8e1jYkfC/200w.gif?cid=6c09b952sbxdcryuge9n48d6nocd7oqohz8sf6geul7byqu3&ep=v1_gifs_search&rid=200w.gif&ct=g);
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+    
+
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    backdrop-filter: blur(40px)
+}
+
+.left-side {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+}
+
+.right-side {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.right-side .top,
+.right-side .middle
+ {
+    font-size: 1.30vw;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.right-side .top {
+    height: 30%;
+}
+.right-side .middle {
+    height: 70%;
+}
+
+.right-side .top {
+    background-color: #4B1278;
+    color: white;
+    
+}
+
+.right-side .middle {
+    background-color: #7124ac;
+    color: white;
+}
+
+
+
+.left-side h1, .left-side h2 {
+    font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.left-side h2 {
+    margin-top: 2vh;
+    
+}
+label {
+    display:block;
+    margin-top: 1vh;
+}
+
+input[type="text"] {
+    width: 100%;
+    height: 5vh;
+    font-size: 3vh;
+}
+select {
+    width: 100%;
+    height: 5vh;
+    font-size: 3vh;
+}
+
+textarea {
+    width: 100%;
+    height: 10vh;
+}
+
+#ModAddition {
+    width: 100%;
+    height: 30vh;
+    font-size: 3vh;
+    resize: both;
+}
+
+.left-side h1 {
+    margin-bottom: 0.5vh;
+    font-size: 3vw;
+} 
+
+.left-side h1:not(:first-of-type) {
+    margin-top: 2vh;
+}
+.hidden {
+    display: none;
+}
+.shown {
+    display: block;
+}
+
+
+
+button {
+    display: block;
+    margin-bottom: 1vh;
+}
