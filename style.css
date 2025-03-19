@@ -64,7 +64,7 @@ body, html {
 
 
 .left-side h1, .left-side h2 {
-    font-family: "Lobster", sans-serif;
+    font-family: Arial, Helvetica, sans-serif, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -127,17 +127,17 @@ textarea {
 
 button {
     display: block;
-    margin-bottom: 1vh;
-    padding: 1vh;
-    border-radius: 1vh;
+    margin-bottom: 0.5vw;
+    padding: 0.5vw;
+    border-radius: 0.5vw;
     color: rgb(255, 197, 238);
     font-weight: bolder;
     background-color: #a531b4;
     border-color: #791568;
-    margin-top: 2vh;
+    margin-top: 1vw;
     transition-timing-function: ease-in-out;
     transition: 0.5s;
-    font-size: 2vh; 
+    font-size: 1vw; 
     
 }
 
