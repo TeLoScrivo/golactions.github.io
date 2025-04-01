@@ -36,16 +36,16 @@ body, html {
 .right-side .top,
 .right-side .middle
  {
-    font-size: 1.30vw;
+    font-size: 1rem;
     padding: 20px;
     box-sizing: border-box;
 }
 
 .right-side .top {
-    height: 30%;
+    height: 40%;
 }
 .right-side .middle {
-    height: 70%;
+    height: 60%;
 }
 
 .right-side .top {
@@ -121,22 +121,19 @@ textarea {
     display: block;
 }
 
-
-
 button {
     display: block;
     margin-bottom: 0.5rem;
-    padding: 0.5vw;
-    border-radius: 0.5vw;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     color: rgb(255, 197, 238);
     font-weight: bolder;
     background-color: #a531b4;
     border-color: #791568;
-    margin-top: 1vw;
+    margin-top: 0.5rem;
     transition-timing-function: ease-in-out;
     transition: 0.5s;
-    font-size: 1vw; 
-    
+    font-size: 1rem; 
 }
 
 button:hover {
@@ -146,7 +143,6 @@ button:hover {
     border-color: #79153b;
     transition: 0.5s;
     transition-timing-function: ease-in-out;
-    
 }
 
 
