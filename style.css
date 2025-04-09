@@ -10,6 +10,7 @@ body, html {
     background-repeat: no-repeat;
     background-attachment: fixed; 
     background-size: 100% 100%;
+    background-image: url(https://media3.giphy.com/media/cMhglZMLwT8e1jYkfC/200w.gif?cid=6c09b952sbxdcryuge9n48d6nocd7oqohz8sf6geul7byqu3&ep=v1_gifs_search&rid=200w.gif&ct=g);
 }
 
 .container {

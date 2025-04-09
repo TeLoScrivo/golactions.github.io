@@ -1,37 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+ <html lang="en">
+ <head>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+ 
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+ 
+     <link rel="icon" type="image/x-icon" href="./GOL.ico">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>GOL Easier Documentation</title>
+     <link rel="stylesheet" href="./style.css">
+     <link rel="stylesheet" href="./slider.css">
+ </head>
+ <body>
+     <div class="container">
+         <div class="left-side">
+             <!-- Content for the left side -->
+             <h1>UserID</h1>
+             <input type="text" name="UserTB" id="UserTB" autocomplete="off" placeholder="UserID">
+             <h1>Rule Broken</h1>
+         <select name="rules" id="rules">
+             <option value="0">Please Select A Rule</option>
+             <option value="1">Rule 1: No Spam / Flood</option>
+             <option value="2">Rule 2: Sensitive Topics</option>
+             <option value="3">Rule 3: Stay PG-13</option>
+             <option value="4">Rule 4: Discrimination</option>
+             <option value="5">Rule 5: Voice Chat Related</option>
+             <option value="6">Rule 6: Leaking Personal Info</option>
+             <option value="7">Rule 7: Dangerous Links/Files</option>
+             <option value="8">Rule 8: Foreign Language outside #international-chat</option>
+             <option value="9">Rule 9: Use Of Common Sense</option>
+             <option value="10">Rule 10: Discord TOS / Community Guidelines</option>
+             <option value="11">Rule 11: Advertisement</option>
+             <option value="12">Rule 12: Contreversial Topics</option>
+             <option value="13">Other</option>
+         </select>
+ 
+         <h1>Guideline Broken</h1>
+         <select name="guideline" id="guideline">
+             <option value="21">Please Select A Guideline</option>
+             <option value="0">Spamming/Wall Text</option>
+             <option value="1">Advertising</option>
+             <option value="2">Harassment after Verbal Warning</option>
+             <option value="3">Toxicity after Verbal Warning</option>
+             <option value="4">Controversial Topics after Verbal Warning</option>
+             <option value="5">Hate Speech</option>
+             <option value="6">NSFW Text</option>
+             <option value="7">NSFW Text if any prior NSFW Text Warns</option>
+             <option value="8">Discrimination</option>
+             <option value="9">Discrimination if any prior Discrimination Warns</option>
+             <option value="10">NSFW Imagery/Video</option>
+             <option value="11">Underaged</option>
+             <option value="12">Death Threats</option>
+             <option value="13">Hacked Accounts</option>
+             <option value="14">IP Grabbers/Doxxing</option>
+             <option value="15">Bypassing Punishment</option>
+         </select>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
-
-    <link rel="icon" type="image/x-icon" href="./GOL.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOL Easier Documentation</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <style>
-        body { text-align: center; padding: 150px; }
-        h1 { font-size: 50px; }
-        body { font: 20px Helvetica, sans-serif; color: #4B1278; }
-        article { display: block; text-align: left; width: 650px; margin: 0 auto; }
-        a { color: #dc8100; text-decoration: none; }
-        a:hover { color: #333; text-decoration: none; }
-      </style>
-      <article>
-          <h1>We&rsquo;ll be back soon!</h1>
-          <div>
-              <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment. We&rsquo;ll be back online shortly!</p>
-              <p>Your Dear Community Manager</p>
-              <p>&mdash; TeLoScrivo</p>
+         <div id="SliderDiv" class="slidecontainer hidden">
+            <h1 id="demo">Amount Of Hours: </h1>
+            <input type="range" min="12" max="24" value="12" class="slider" id="myRange">
           </div>
-      </article>
-</body>
-<script src="./script.js"></script>
-</html>
+ 
+         <h1>Additional Info<h1>
+         <textarea id="ModAddition"></textarea>
+         </div>
+ 
+         <div class="right-side">
+             <div class="top">
+                 <!-- Top section of the right side -->
+                 <h2>Documentation Format:</h2>
+                 <p id="userid">UserID: </p>
+                 <p id="reason" >Reason: </p>
+                 <p id="action" >Action: </p>
+                 <p>Proof: Attached</p>
+                 <button class="btn-grad" id="DocBTN">Copy Documentation</button>
+             </div>
+             <div class="middle">
+                 <!-- Middle section of the right side -->
+ 
+                 <h2>Execute Following Commands:</h2>
+ 
+                 <div id="ban" class="hidden">
+                     <h2>Ban Command</h2>
+                     <textarea id="bancmd"></textarea>
+                     <button id="BanBTN">Copy Command</button>
+                 </div>
+ 
+                 <div id="warn" class="hidden">
+                     <h4>Warn Command</h4>
+                     <textarea id="warncmd"></textarea>
+                     <button id="WarnBTN">Copy Command</button>
+                 </div>
+ 
+                 <div id="softban" class="hidden">
+                     <h2>Softban Command</h2>
+                     <textarea id="softbancmd"></textarea>
+                     <button id="SoftbanBTN">Copy Command</button>
+                 </div>
+ 
+                 <div id="mute" class="hidden">
+                     <h2>Mute Command</h2>
+                     <textarea id="mutecmd"></textarea>
+                     <button id="MuteBTN">Copy Command</button>
+                 </div>
+ 
+             </div>
+ 
+         </div>
+     </div>
+ </body>
+ <script src="./script.js"></script>
+ </html>

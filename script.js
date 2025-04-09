@@ -1,49 +1,40 @@
 // [Message Deletion, Mute10m, Mute30m, Mute1h, Warn, Softban/Kick, Ban, XPReset]
+// [Mute1h, Mute6h, Mute12h, Mute12to24, Warn, Softban, Ban, XPRESET]
 Actions = [
-    [1, 0, 0, 1, 1, 0, 0, 0], //Advertising
-    [0, 0, 0, 0, 1, 0, 0, 0], //Argumentative Behavior
-    [0, 0, 0, 1, 1, 0, 0, 0], //Argumentative Behavior after Verbal Warn
-    [0, 0, 0, 1, 1, 0, 0, 0], //NSFW Speech
-    [0, 0, 0, 0, 0, 0, 1, 0], //NSFW Speech (If any previous NSFW Speech warns)
-    [0, 0, 0, 1, 1, 0, 0, 0], //Derogatory Terms
-    [0, 0, 0, 0, 1, 0, 0, 1], //Spam
-    [0, 0, 0, 1, 1, 0, 0, 1], //Continuing Spam
-    [0, 0, 0, 1, 1, 0, 0, 0], //Flooding
-    [0, 0, 0, 0, 1, 0, 0, 0], //Bodyshaming
+    [1, 0, 0, 0, 1, 0, 0, 0], //Spamming/Wall Text
+    [0, 0, 0, 0, 1, 0, 0, 0], //Advertising
+    [0, 1, 0, 0, 1, 0, 0, 0], //Harassment after Verbal Warning
+    [0, 1, 0, 0, 1, 0, 0, 0], //Toxicity after Verbal Warning
+    [0, 1, 0, 0, 1, 0, 0, 0], //Controversial Topics after Verbal Warning
+    [0, 1, 0, 0, 1, 0, 0, 0], //Hate Speech
+    [0, 0, 1, 0, 1, 0, 0, 0], //NSFW Text
+    [0, 0, 0, 0, 0, 0, 1, 0], //NSFW Text if any prior NSFW Text Warns
+    [0, 0, 0, 1, 1, 0, 0, 0], //Discrimination
+    [0, 0, 0, 0, 0, 0, 1, 0], //Discrimination if any prior Discrimination Warns
+    [0, 0, 0, 0, 0, 0, 1, 0], //NSFW Imagery/Video
+    [0, 0, 0, 0, 0, 0, 1, 0], //Underaged
     [0, 0, 0, 0, 0, 0, 1, 0], //Death Threats
-    [0, 1, 0, 0, 0, 0, 0, 0], //Begging
-    [0, 0, 1, 0, 0, 0, 0, 0], //Mini Modding
-    [0, 0, 1, 0, 0, 0, 0, 0], //Staff Disrespect
-    [0, 0, 0, 0, 0, 1, 0, 0], //Hacked Account
-    [0, 0, 0, 0, 0, 0, 1, 0], //Discrimination
-    [0, 0, 0, 0, 0, 0, 1, 0], //Underage
-    [0, 0, 0, 0, 0, 0, 1, 0], //Doxxing
-    [0, 0, 0, 0, 0, 0, 1, 0], //Scamming
-    [0, 0, 0, 0, 0, 0, 1, 0], //Extreme NSFW
-    [0, 0, 0, 0, 0, 0, 1, 0] //Bypassing Ban
+    [0, 0, 0, 0, 0, 1, 0, 0], //Hacked Accounts
+    [0, 0, 0, 0, 0, 0, 1, 0], //IP Grabbers/Doxxing
+    [0, 0, 0, 0, 0, 0, 1, 0] //Bypassing Punishment
+
 ];
-Reasons = ["Advertising",
-    "Argumentative Behavior",
-    "Argumentative Behavior after Verbal Warn",
-    "NSFW Speech",
-    "NSFW Speech (If any previous NSFW Speech warns)",
-    "Derogatory Terms",
-    "Spam",
-    "Continuing Spam",
-    "Flooding",
-    "Bodyshaming",
-    "Death Threats",
-    "Begging",
-    "Mini Modding",
-    "Staff Disrespect",
-    "Hacked Account",
+Reasons = ["Spamming/Wall Text",
+    "Advertising",
+    "Harassment",
+    "Toxicity",
+    "Controversial Topics",
+    "Hate Speech",
+    "NSFW Text",
+    "NSFW Text",
     "Discrimination",
-    "Underage",
-    "Doxxing",
-    "Scamming",
-    "Extreme NSFW",
-    "Bypassing Ban",
-    ""];
+    "Discrimination",
+    "NSFW Imagery/Video",
+    "Underaged",
+    "Death Threats",
+    "Hacked Accounts",
+    "IP Grabbers/Doxxing",
+    "Bypassing Punishment"];
 
 RulesDetails = ["",
     "No spamming or flooding in the channels, this includes wall texts and spamming messages.",
@@ -65,6 +56,14 @@ document.addEventListener("DOMContentLoaded", init);
 
 function init() {
 
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = "Amount Of Hours: " + 12; 
+    slider.oninput = function() {
+    output.innerHTML = "Amount Of Hours: " + this.value;
+
+    }
+
     const RuleDB = document.querySelector("#rules");
     const UserTB = document.querySelector('#UserTB');
     const GuidelinesDropBox = document.querySelector('#guideline');
@@ -77,12 +76,14 @@ function init() {
     UserTB.addEventListener('change', Update);
     RuleDB.addEventListener('change', Update);
     ModAddition.addEventListener('change', Update);
+    slider.addEventListener('change',Update);
 
     const BanDiv = document.querySelector("#ban");
     const WarnDiv = document.querySelector("#warn");
     const SoftbanDiv = document.querySelector("#softban");
     const MuteDiv = document.querySelector("#mute");
     const ResetDiv = document.querySelector("#reset");
+    const SliderDiv = document.querySelector('#SliderDiv');
 
     const warncmd = document.querySelector('#warncmd');
     const bancmd = document.querySelector('#bancmd');
@@ -132,6 +133,8 @@ function init() {
         WarnDiv.setAttribute("class", "hidden");
         SoftbanDiv.setAttribute("class", "hidden");
         MuteDiv.setAttribute("class", "hidden");
+        SliderDiv.setAttribute("class", "slidecontainer hidden");
+
 
         let BanCommand = "";
         let WarnCommand = "";
@@ -148,34 +151,45 @@ function init() {
         if (GuidelinesDropBox.value !== -1) {
             ReasonLabel.innerHTML = "Reason: User has violated Rule " + RuleDB.value + " (" + Reasons[GuidelinesDropBox.value] + ")";
         }
-
         let ActionsValue = "";
+
+// [Mute1h, Mute6h, Mute12h, Mute12to24, Warn, Softban, Ban, XPRESET]
+
         if (Actions[GuidelinesDropBox.value][0] === 1) {
-            ActionsValue += "Message Deletion + "
-        }
-        if (Actions[GuidelinesDropBox.value][1] === 1) {
-            ActionsValue += "10 minute mute + "
-            MuteCommand = "?mute " + UserTB.value + " 10m Refer to the previous warning for further details."
-            MuteDiv.setAttribute("class", "shown");
-            if (Actions[GuidelinesDropBox.value][4] === 0) {
-                MuteCommand = "?mute " + UserTB.value + " 10m Violation of Rule " + RuleDB.value + ": " + RulesDetails[RuleDB.value] + _ModAddition;
-            }
-        }
-        if (Actions[GuidelinesDropBox.value][2] === 1) {
-            ActionsValue += "30 minute mute + "
-            MuteCommand = "?mute " + UserTB.value + " 30m Refer to the previous warning for further details."
-            MuteDiv.setAttribute("class", "shown");
-            if (Actions[GuidelinesDropBox.value][4] === 0) {
-                MuteCommand = "?mute " + UserTB.value + " 30m Violation of Rule " + RuleDB.value + ": " + RulesDetails[RuleDB.value] + _ModAddition;
-            }
-        }
-        if (Actions[GuidelinesDropBox.value][3] === 1) {
-            ActionsValue += "1 hour mute + "
+            ActionsValue += "1h Mute + "
             MuteCommand = "?mute " + UserTB.value + " 1h Refer to the previous warning for further details."
             MuteDiv.setAttribute("class", "shown");
             if (Actions[GuidelinesDropBox.value][4] === 0) {
                 MuteCommand = "?mute " + UserTB.value + " 1h Violation of Rule " + RuleDB.value + ": " + RulesDetails[RuleDB.value] + _ModAddition;
             }
+        }
+        if (Actions[GuidelinesDropBox.value][1] === 1) {
+            ActionsValue += "6h Mute + ";
+            MuteCommand = "?mute " + UserTB.value + " 6h Refer to the previous warning for further details."
+            MuteDiv.setAttribute("class", "shown");
+            if (Actions[GuidelinesDropBox.value][4] === 0) {
+                MuteCommand = "?mute " + UserTB.value + " 6h Violation of Rule " + RuleDB.value + ": " + RulesDetails[RuleDB.value] + _ModAddition;
+            }
+        }
+        if (Actions[GuidelinesDropBox.value][2] === 1) {
+            ActionsValue += "12h Mute mute + ";
+            MuteCommand = "?mute " + UserTB.value + " 12h Refer to the previous warning for further details."
+            MuteDiv.setAttribute("class", "shown");
+            if (Actions[GuidelinesDropBox.value][4] === 0) {
+                MuteCommand = "?mute " + UserTB.value + " 12h Violation of Rule " + RuleDB.value + ": " + RulesDetails[RuleDB.value] + _ModAddition;
+            }
+        }
+        
+        let HourRange = slider.value;
+        if (Actions[GuidelinesDropBox.value][3] === 1) {
+            ActionsValue += HourRange + " hour mute + ";
+            MuteCommand = "?mute " + UserTB.value +" "+ HourRange +"h Refer to the previous warning for further details."
+            MuteDiv.setAttribute("class", "shown");
+            SliderDiv.setAttribute("class", "slidecontainer shown");
+            if (Actions[GuidelinesDropBox.value][4] === 0) {
+                MuteCommand = "?mute " + UserTB.value +" "+ HourRange +"h Violation of Rule " + RuleDB.value + ": " + RulesDetails[RuleDB.value] + _ModAddition;
+            }
+
         }
         if (Actions[GuidelinesDropBox.value][4] === 1) {
             ActionsValue += "Warn + "
